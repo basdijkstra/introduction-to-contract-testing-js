@@ -1,0 +1,21 @@
+{
+  "name": "introduction-to-contract-testing-js",
+  "version": "1.0.0",
+  "description": "",
+  "keywords": [
+    "contract-testing",
+    "pact"
+  ],
+  "license": "ISC",
+  "author": "Bas Dijkstra",
+  "main": "index.js",
+  "scripts": {
+    "customer-consumer-test": "vitest --run customer-consumer/tests"
+  },
+  "devDependencies": {
+    "@pact-foundation/pact": "^16.5.0",
+    "@types/node": "^25.9.1",
+    "axios": "^1.17.0",
+    "vitest": "^4.1.8"
+  }
+}
