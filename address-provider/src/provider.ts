@@ -16,7 +16,7 @@ export function createApp(): Express {
 
     app.delete('/address/:id', (req, res) => {
         addresses.delete(req.params.id);
-        res.status(204);
+        res.status(204).send();
     });
 
     return app;

@@ -13,21 +13,22 @@ describe('Verify contracts', () => {
         server = createApp().listen(port);
     });
 
-    test('to see if provider implementation matches consumer expectations', () => {
+    test('to see if provider implementation matches consumer expectations', async () => {
 
-        new Verifier({
+        await new Verifier({
             providerBaseUrl: `http://localhost:${port}`,
             provider: 'address-provider',
             providerVersion: '1.0.0',
+            providerVersionBranch: 'main',
             pactBrokerUrl: process.env.PACT_BROKER_BASE_URL,
             pactBrokerToken: process.env.PACT_BROKER_TOKEN,
             publishVerificationResult: true,
             consumerVersionSelectors: [
-                { branch: "main" }
+                { branch: 'main' }
             ],
             stateHandlers: {
                 'no specific state required': async () => {},
-                'an address with ID {addressId} exists': async (_: string, params?: { [name: string]: string }) => {
+                'an address with ID {addressId} exists': async (params?: { [name: string]: string }) => {
                     const addressId = params?.['addressId'];
 
                     if (!addressId) throw new Error('addressId param is required');
@@ -44,7 +45,7 @@ describe('Verify contracts', () => {
                     } 
                     addAddress(address);
                 },
-                'an address with ID {addressId} does not exist': async (_: string, params?: { [name: string]: string }) => {
+                'an address with ID {addressId} does not exist': async (params?: { [name: string]: string }) => {
                     const addressId = params?.['addressId'];
 
                     if (!addressId) throw new Error('addressId param is required');
@@ -52,10 +53,10 @@ describe('Verify contracts', () => {
                     removeAddress(addressId);
                 },
             },
-            logLevel: 'debug'
-        }).verifyProvider(),
-        30_000
-    });
+            logLevel: 'info',
+            failIfNoPactsFound: true
+        }).verifyProvider();
+    }, 30_000);
 
     afterAll(() => new Promise<void>((resolve) => server.close(() => resolve())));
 });
