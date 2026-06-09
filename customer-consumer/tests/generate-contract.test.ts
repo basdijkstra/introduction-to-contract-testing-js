@@ -33,7 +33,7 @@ describe('Address service', () => {
                     houseNumber: integer(123),
                     city: string('Beverly Hills'),
                     zipCode: integer(90210),
-                    state: like('California'),
+                    state: string('California'),
                     country: regex('United States|Canada', 'United States')
                 })
             );
