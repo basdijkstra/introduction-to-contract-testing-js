@@ -55,4 +55,30 @@ describe('Address service', () => {
              */
         });
     });
+
+    test('returns a 404 when address is not found', async () => {
+
+        /**
+         * TODO: Implement this test by completing the following steps:
+         * - Define the pact, including a parameterized provider state
+         *     'an address with ID {addressId} does not exist'
+         * - Specify the request and expect the provider to return an HTTP 404.
+         *     You don't need to add any other expectations.
+         * - Run the test by calling the mock server using the getAddress()
+         *     operation defined in the AddressServiceClient.
+         */
+    });
+
+    test('returns a 204 when an address is deleted', async () => {
+
+        /**
+         * TODO: Implement this test by completing the following steps:
+         * - Define the pact, including a parameterized provider state
+         *     'no specific state required'
+         * - Specify the request and expect the provider to return an HTTP 204.
+         *     You don't need to add any other expectations.
+         * - Run the test by calling the mock server using the deleteAddress()
+         *     operation defined in the AddressServiceClient.
+         */
+    });
 });

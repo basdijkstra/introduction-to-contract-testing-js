@@ -12,7 +12,9 @@
   "scripts": {
     "customer-consumer-test": "vitest --run customer-consumer/tests",
     "order-consumer-test": "vitest --run order-consumer/tests",
-    "address-provider-test": "vitest --run address-provider/tests"
+    "order-consumer-bdct-test": "vitest --run order-consumer/bdct-tests",
+    "address-provider-test": "vitest --run address-provider/tests",
+    "publish-payment-provider-contract": "pactflow publish-provider-contract order-consumer/openapi/ideal.yml --provider payment-provider --provider-app-version 1.0.0 --content-type application/yml --verification-success --verification-results order-consumer/openapi/results.txt --verification-results-content-type text/plain --verifier my-test-tool --verifier-version 1.2.3"
   },
   "devDependencies": {
     "@pact-foundation/pact": "^16.5.0",
