@@ -11,6 +11,7 @@
   "main": "index.js",
   "scripts": {
     "customer-consumer-test": "vitest --run customer-consumer/tests",
+    "order-consumer-test": "vitest --run order-consumer/tests",
     "address-provider-test": "vitest --run address-provider/tests"
   },
   "devDependencies": {
@@ -19,6 +20,7 @@
     "@types/node": "^25.9.1",
     "axios": "^1.17.0",
     "express": "^5.2.1",
+    "uuid": "^14.0.0",
     "vitest": "^4.1.8"
   }
 }
