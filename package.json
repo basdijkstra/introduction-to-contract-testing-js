@@ -11,7 +11,7 @@
   "main": "index.js",
   "scripts": {
     "customer-consumer-test": "vitest --run customer-consumer/tests",
-    "address-provider-test": "vitest run address-provider/tests"
+    "address-provider-test": "vitest --run address-provider/tests"
   },
   "devDependencies": {
     "@pact-foundation/pact": "^16.5.0",
