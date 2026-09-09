@@ -16,7 +16,7 @@ describe('Address service', () => {
 
     test('allows to get an address by ID', async () => {
 
-        const addressId = uuidv4();
+        const addressId = 'address-123'
         await pact
         .addInteraction()
         .given('an address with ID {addressId} exists', { addressId: addressId })
